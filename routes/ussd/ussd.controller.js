@@ -33,7 +33,14 @@ async function calculatePrice(reg){
     const entry = await getEntry(reg)
     console.log(entry)
     const time = new Date().getTime() - new Date(entry.timeIn).getTime()
-    const price =Math.round(time/(1000*60))*5
+    let price =Math.round(time/(1000*60))*1
+
+    if(price<100){
+        price = 100
+    }
+
+    price= Math.round(price/10)*10
+
     console.log(price)
 
     return price
