@@ -1,4 +1,4 @@
-export function httpUssdCallback(req, res){
+function httpUssdCallback(req, res){
     const {
         sessionId,
         serviceCode,
@@ -6,8 +6,7 @@ export function httpUssdCallback(req, res){
         text
     } = req.body
 
-    return "Parking Ninja"
-
+    return res.send(textResponse(text))
 }
 
 function textResponse(text){
@@ -19,4 +18,8 @@ function textResponse(text){
         return 'END Thank you'
     }
 
+}
+
+module.exports = {
+    httpUssdCallback
 }

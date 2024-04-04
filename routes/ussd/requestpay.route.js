@@ -1,9 +1,8 @@
 const express = require('express')
-const { httpGetRandomQuote, httpPostQuotes } = require('./ussd.controller')
+const { httpUssdCallback } = require('./ussd.controller')
 
-const quotesRouter = express.Router()
+const ussdRouter = express.Router()
 
-quotesRouter.get("/", httpGetRandomQuote)
-quotesRouter.post("/", httpPostQuotes)
+ussdRouter.post("/", httpUssdCallback)
 
-module.exports = quotesRouter
+module.exports = ussdRouter
